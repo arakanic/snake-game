@@ -22,16 +22,32 @@ const createGameboardPixels = () => {
 const gameboardPixels = document.getElementsByClassName('gameboard-pixel');
 // Create randomly generated food items on gameboard
 const createFood = () => {
-    console.log(gameboardPixels[foodIndex].classList)
+    console.log(gameboardPixels[foodIndex].classList);
     if (gameboardPixels[foodIndex].classList.contains("food")) {
-        gameboardPixels[foodIndex].classList.remove("food")
+        gameboardPixels[foodIndex].classList.remove("food");
     }
-    foodIndex = Math.floor(TOTAL_PIXEL_COUNT * Math.random())
-    gameboardPixels[foodIndex].classList.add('food')
+    foodIndex = Math.floor(TOTAL_PIXEL_COUNT * Math.random());
+    gameboardPixels[foodIndex].classList.add('food');
 }
-
 /* Snake behavior */
-const LEFT_DIR = 37
-const UP_DIR = 38
-const RIGHT_DIR = 39
-const DOWN_DIR = 40
+const LEFT_DIR = 37;
+const UP_DIR = 38;
+const RIGHT_DIR = 39;
+const DOWN_DIR = 40;
+let snakeDirection = RIGHT_DIR;
+// Validate user input, change snake direction movement
+const changeDirection = newDirection => {
+    if (newDirection == snakeDirection) { return; }
+    if (newDirection == LEFT_DIR && snakeDirection !== RIGHT_DIR) {
+        snakeDirection = newDirection;
+    }
+    else if (newDirection == UP_DIR && snakeDirection !== DOWN_DIR) {
+        snakeDirection = newDirection;
+    }
+    else if (newDirection == RIGHT_DIR && snakeDirection !== LEFT_DIR) {
+        snakeDirection = newDirection;
+    }
+    else if (newDirection == DOWN_DIR && snakeDirection !== UP_DIR) {
+        snakeDirection = newDirection;
+    }
+}
