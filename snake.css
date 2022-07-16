@@ -1,1 +1,84 @@
 /* Next version to utilize Canvas API */
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear {
+      clear: both;
+  }
+    
+  body {
+    background-color: rgba(36, 68, 90, 0.856);
+    text-align: center;
+  }
+  
+  #game-container {
+    width: 40vw;
+    height: 40vh;
+    margin: 1vw auto;
+    background-color: rgb(0, 0, 0);
+    border: solid 10px rgba(36, 10, 39, 0.904);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
+  }
+
+  .gameboard-pixel {
+    width: 1vw;
+    height: 1vh;
+    border-radius: 10px;
+    float: left;
+    outline: 1px solid red;
+  }
+
+  .food {
+    background-color: rgb(207, 72, 72);
+    box-shadow: 0 0 10px #f3b4b4;
+  }
+
+  .snake-body-pixel {
+    background-color: rgb(39, 63, 32);
+    box-shadow: 0 0 5px rgb(107, 177, 86);
+  }
+
+  #score-container {
+    width: 40vw;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+  }
+
+  .scoreboard {
+    font-family: 'Courier New', 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid 5px rgb(77, 117, 226);
+    color: #fff;
+    background-color: #000;
+    display: inline-block;
+    padding: 5px;
+    width: 48%;
+    box-shadow: 0px 0px 7px 1px rgb(0, 0, 0);
+  }
+
+  #points-earned {
+
+  }
+
+  #blocks-traveled {
+
+  }
+
+  #onscreen-controls {
+    display: none;
+  }
