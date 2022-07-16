@@ -1,10 +1,6 @@
 /* Next version to utilize Canvas API */
-/* Box Model Hack */
-* {
-    box-sizing: border-box;
-  }
-  
-  /* Clear fix hack */
+
+/* Clear fix hack */
   .clearfix:after {
        content: ".";
        display: block;
@@ -38,12 +34,12 @@
     height: 1vh;
     border-radius: 10px;
     float: left;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
   }
 
   .food {
     background-color: rgb(207, 72, 72);
-    box-shadow: 0 0 10px #f3b4b4;
+    box-shadow: 0 0 12px #f3b4b4;
   }
 
   .snake-body-pixel {
