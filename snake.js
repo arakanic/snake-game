@@ -51,3 +51,29 @@ const changeDirection = newDirection => {
         snakeDirection = newDirection;
     }
 }
+// Snake starting index, length
+let headIndex = TOTAL_PIXEL_COUNT / 2
+let snakeLength = 200
+// Move snake along
+const moveSnake = () => {
+    switch (snakeDirection) {
+        case LEFT_DIR:
+            --headIndex;
+            const isHeadAtLeft = (headIndex % LINE_PIXEL_COUNT == LINE_PIXEL_COUNT - 1) || (headIndex < 0)
+            if (isHeadAtLeft) {
+                headIndex += LINE_PIXEL_COUNT
+            }
+            break;
+        case RIGHT_DIR:
+            ++headIndex;
+            // const isHeadAtRight = (headIndex % LINE_PIXEL_COUNT == LINE_PIXEL_COUNT - 1) || (headIndex < 0)
+            // if (isHeadAtRight) {
+            //     headIndex += LINE_PIXEL_COUNT
+            // }
+            break;
+        case UP_DIR:
+            break;
+        case DOWN_DIR:
+            break;
+    }
+}
