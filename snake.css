@@ -67,14 +67,50 @@
     box-shadow: 0px 0px 7px 1px rgb(0, 0, 0);
   }
 
-  #points-earned {
-
-  }
-
-  #pixels-traveled {
-
-  }
+  /* Grid for onscreen controls! */
 
   #onscreen-controls {
     display: none;
+  }
+
+  @media only screen and (max-width: 786px) {
+    #game-container {
+      width: 80vw;
+      height: 80vh;
+    }
+
+    .gameboard-pixel {
+      width: 2vw;
+      height: 2vh;
+    }
+
+    #score-container {
+      width: 80vw;
+    }
+
+    #onscreen-controls {
+      width: 80vw;
+      margin: 5vw auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #onscreen-controls button {
+      background-color: transparent;
+      /* width: 20vw;
+      height: 20vh; */
+      font-size: 10vw;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+
+    #onscreen-controls button:focus {
+      outline: none;
+    }
+
+    #onscreen-controls button:active {
+      box-shadow: 0px 0px 10px rgba(54, 127, 175, 0.856);
+    }
   }
