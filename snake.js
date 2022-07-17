@@ -29,7 +29,10 @@ const createFood = () => {
     foodIndex = Math.floor(TOTAL_PIXEL_COUNT * Math.random());
     gameboardPixels[foodIndex].classList.add('food');
 }
-/* Snake behavior */
+
+/* 
+SNAKE BEHAVIOR 
+*/
 const LEFT_DIR = 37;
 const UP_DIR = 38;
 const RIGHT_DIR = 39;
@@ -93,14 +96,41 @@ const moveSnake = () => {
     // End game if snake collides with itself
     if (snakeHeadPixel.classList.contains('snake-body-pixel')) {
         clearInterval(moveSnakeInterval)
-        alert(`GAME OVER! You consumed ${totalFoodEaten} apples and traveled ${totalDistanceTraveled} blocks!`)
+        alert(`GAME OVER! You consumed ${totalFoodEaten} apples and traveled ${totalDistanceTraveled} pixels!`)
         window.location.reload()
     }
     // Add snake body CSS to new empty pixel otherwise
     snakeHeadPixel.classList.add('snake-body-pixel')
+    // Remove styling to keep snake at appropriate length
+    setTimeout(() => {
+        snakeHeadPixel.classList.remove('snake-body-pixel')
+    }, snakeLength)
+    // Update totalFoodEaten, snakeLength + createFood()
+    if (headIndex == foodIndex) {
+        console.log("nomnomnom")
+        totalFoodEaten++
+        document.getElementById('points-earned').innerText = totalFoodEaten
+        snakeLength += 100
+        createFood()
+    }
+    // Update totalDistanceTraveled
+    totalDistanceTraveled++
+    document.getElementById("pixels-traveled").innerText = totalDistanceTraveled
 }
-
+// Start game: new gameboard + food placement
 createGameboardPixels();
 createFood();
-
-let moveSnakeInterval = setInterval(moveSnake, 100);
+// Set animation speed
+let moveSnakeInterval = setInterval(moveSnake, 50);
+// Add keyboard event listener
+addEventListener("keydown", e => changeDirection(e.keyCode))
+// Create onscreen button constants
+const leftButton = document.getElementById('left-button')
+const upButton = document.getElementById('up-button')
+const downButton = document.getElementById('down-button')
+const rightButton = document.getElementById('right-button')
+// Add listeners to onscreen buttons
+leftButton.onclick = () => changeDirection(LEFT_DIR)
+upButton.onclick = () => changeDirection(UP_DIR)
+downButton.onclick = () => changeDirection(DOWN_DIR)
+rightButton.onclick = () => changeDirection(RIGHT_DIR)
