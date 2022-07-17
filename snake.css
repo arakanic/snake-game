@@ -43,8 +43,8 @@
   }
 
   .snake-body-pixel {
-    background-color: rgb(39, 63, 32);
-    box-shadow: 0 0 5px rgb(107, 177, 86);
+    background-color: rgb(44, 143, 11);
+    box-shadow: 0 0 2px rgb(147, 187, 134);
   }
 
   #score-container {
